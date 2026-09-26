@@ -1,0 +1,333 @@
+/* --- MARKETLINK AUTH CSS WITH ANIMATIONS --- */
+
+:root {
+  --ink: #20281c;
+  --canvas: #f2ede0;
+  --canvas-2: #e9e1cd;
+  --evergreen: #2e4a2c;
+  --evergreen-2: #233a22;
+  --harvest: #e0a52c;
+  --harvest-dark: #b9821a;
+  --cream-line: rgba(32, 40, 28, .14);
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+  --radius: 8px;
+  --card-bg: #fbf8ee;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: pageEntrance 0.8s ease-out forwards;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pageEntrance {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideFromLeft {
+  0% { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFromRight {
+  0% { opacity: 0; transform: translateX(40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+  animation: slideFromLeft 0.8s cubic-bezier(0.1, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slideFromRight 0.8s cubic-bezier(0.1, 1, 0.3, 1) forwards;
+}
+
+/* --- SPLIT PAGE LAYOUT --- */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* --- LEFT BANNER SIDE --- */
+.side {
+  background: var(--evergreen-2);
+  color: #fbf8ef;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 680;
+  font-size: 1.25rem;
+  color: #fbf8ef;
+  text-decoration: none;
+}
+
+.side-quote {
+  max-width: 360px;
+  margin: auto 0;
+}
+
+.side-quote p {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  color: #f5f0e1;
+}
+
+.side-quote span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  letter-spacing: 0.02em;
+  color: var(--harvest);
+}
+
+.crumbs {
+  display: flex;
+  gap: 8px;
+}
+
+.crumb {
+  width: 24px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.crumb.on {
+  background: var(--harvest);
+  width: 36px;
+}
+
+/* --- RIGHT FORM SIDE --- */
+.form-side {
+  background: var(--canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow-y: auto;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card-bg);
+  border: 1px solid var(--cream-line);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(32, 40, 28, 0.04);
+}
+
+.form-card h1 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--evergreen-2);
+  margin-bottom: 8px;
+}
+
+.form-card p {
+  font-size: 0.92rem;
+  color: var(--ink);
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.88rem;
+  color: var(--evergreen);
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+/* --- FORM ELEMENTS --- */
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--evergreen-2);
+  margin-bottom: 6px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--canvas);
+  border: 1.5px solid var(--cream-line);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--evergreen);
+  box-shadow: 0 0 0 3px rgba(46, 74, 44, 0.12);
+}
+
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  margin-bottom: 24px;
+}
+
+.row-between a {
+  color: var(--evergreen);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.row-between a:hover {
+  text-decoration: underline;
+}
+
+/* --- ROLE SWITCHER (FOR SIGNUP) --- */
+.role-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: var(--canvas);
+  padding: 4px;
+  border: 1.5px solid var(--cream-line);
+  border-radius: var(--radius);
+}
+
+.role-switch input[type="radio"] {
+  display: none;
+}
+
+.role-switch label {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 0 !important;
+}
+
+.role-switch input[type="radio"]:checked + label {
+  background: var(--evergreen);
+  color: #fbf8ef;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(46, 74, 44, 0.15);
+}
+
+.btn-primary {
+  background: var(--evergreen);
+  color: #fbf8ef;
+}
+
+.btn-primary:hover {
+  background: var(--evergreen-2);
+}
+
+/* --- MESSAGES & FOOTNOTES --- */
+.msg {
+  background: #fdf2f0;
+  color: var(--clay);
+  border: 1px solid rgba(169, 80, 47, 0.2);
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}
+
+.foot-note {
+  text-align: center;
+  font-size: 0.88rem;
+  margin-top: 24px;
+  color: var(--ink);
+  opacity: 0.8;
+}
+
+.foot-note a {
+  color: var(--evergreen);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.foot-note a:hover {
+  text-decoration: underline;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+  .side {
+    padding: 32px 24px;
+    min-height: 220px;
+  }
+  .side-quote {
+    margin: 20px 0;
+  }
+  .side-quote p {
+    font-size: 1.2rem;
+  }
+}
